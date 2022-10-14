@@ -12,7 +12,7 @@ android {
     compileSdk compSdkVersion
 
     defaultConfig {
-        applicationId "ru.coolhabit.marvelheroesandcomics"
+        applicationId "com.example.birdpizzaapp"
         minSdkVersion mSdkVersion
         targetSdkVersion tarSdkVersion
         versionCode 1
