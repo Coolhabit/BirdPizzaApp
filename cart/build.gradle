@@ -1,0 +1,82 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id "androidx.navigation.safeargs.kotlin"
+    id 'kotlin-parcelize'
+}
+
+apply from: '../dependencies.gradle'
+
+android {
+    compileSdkVersion compSdkVersion
+
+    defaultConfig {
+        minSdkVersion mSdkVersion
+        targetSdkVersion tarSdkVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+        // Flag to enable support for the new language APIs
+        coreLibraryDesugaringEnabled true
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        freeCompilerArgs += [
+                "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
+        ]
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    kapt {
+        arguments {
+            arg("dagger.fastInit", "enabled")
+        }
+    }
+}
+
+dependencies {
+    testImplementation junit
+    androidTestImplementation android_test
+
+    implementation core_ktx
+    coreLibraryDesugaring desugaring
+
+    // coroutines
+    implementation kotlinx_coroutines_core
+    implementation kotlinx_coroutines_android
+
+    // dagger 2
+    implementation dagger
+    implementation dagger_android
+    implementation dagger_android_support
+    kapt dagger_android_processor
+    kapt dagger_compiler
+
+    // navigation
+    implementation navigation_fragment_ktx
+    implementation navigation_ui_ktx
+
+    implementation pagination
+
+    implementation glide_core
+    kapt glide_kapt
+
+    implementation kiel
+
+    implementation project(":baseUI")
+}

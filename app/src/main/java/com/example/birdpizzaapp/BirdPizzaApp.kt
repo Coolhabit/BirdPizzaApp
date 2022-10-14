@@ -1,5 +1,6 @@
 package com.example.birdpizzaapp
 
+import com.example.birdpizzaapp.ioc.DaggerApplicationComponent
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 

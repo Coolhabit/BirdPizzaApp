@@ -14,3 +14,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "BirdPizzaApp"
 include ':app'
+include ':menu'
+include ':profile'
+include ':cart'
+include ':baseUI'

@@ -2,10 +2,13 @@ package com.example.birdpizzaapp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.view.isVisible
+import androidx.core.view.updatePadding
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.example.birdpizzaapp.R
 import com.example.birdpizzaapp.databinding.ActivityMainBinding
 import dagger.android.AndroidInjection
@@ -32,18 +35,18 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
 
 
-//        binding.bottomNavigationView.setupWithNavController(
-//            getNavController().apply {
-//                addOnDestinationChangedListener(this@MainActivity)
-//            }
-//        )
-//
-//        binding.bottomNavigationView.setOnItemReselectedListener {
-//            getNavController().apply {
-//                popBackStack(it.itemId, true)
-//                navigate(it.itemId)
-//            }
-//        }
+        binding.bottomNavigationView.setupWithNavController(
+            getNavController().apply {
+                addOnDestinationChangedListener(this@MainActivity)
+            }
+        )
+
+        binding.bottomNavigationView.setOnItemReselectedListener {
+            getNavController().apply {
+                popBackStack(it.itemId, true)
+                navigate(it.itemId)
+            }
+        }
     }
 
     override fun onDestinationChanged(
@@ -51,14 +54,14 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         destination: NavDestination,
         arguments: Bundle?,
     ) {
-//        binding.bottomNavigationView.updatePadding(bottom = 0)
+        binding.bottomNavigationView.updatePadding(bottom = 0)
     }
 
-//    private fun getNavController(): NavController {
-//        return (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
-//    }
-//
-//    fun handleBottomNavigationVisibility(showBottomNavigationView: Boolean) {
-//        binding.bottomNavigationView.isVisible = showBottomNavigationView
-//    }
+    private fun getNavController(): NavController {
+        return (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
+    }
+
+    fun handleBottomNavigationVisibility(showBottomNavigationView: Boolean) {
+        binding.bottomNavigationView.isVisible = showBottomNavigationView
+    }
 }

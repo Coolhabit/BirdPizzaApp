@@ -3,7 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/Projects/BirdPizzaApp/app/src/main/res/drawable/ic_cart.xml" value="0.124" />
+        <entry key="..\:/Android/Projects/BirdPizzaApp/app/src/main/res/drawable/ic_menu.xml" value="0.2595" />
+        <entry key="..\:/Android/Projects/BirdPizzaApp/app/src/main/res/drawable/ic_profile.xml" value="0.2595" />
         <entry key="..\:/Android/Projects/BirdPizzaApp/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
+        <entry key="..\:/Android/Projects/BirdPizzaApp/app/src/main/res/menu/bottom_navigation.xml" value="0.253125" />
+        <entry key="..\:/Android/Projects/BirdPizzaApp/cart/src/main/res/layout/fragment_cart.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/Projects/BirdPizzaApp/menu/src/main/res/layout/fragment_menu.xml" value="0.1721311475409836" />
+        <entry key="..\:/Android/Projects/BirdPizzaApp/profile/src/main/res/layout/frament_profile.xml" value="0.22826086956521738" />
       </map>
     </option>
   </component>
