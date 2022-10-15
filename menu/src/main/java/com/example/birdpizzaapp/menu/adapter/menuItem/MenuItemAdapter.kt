@@ -11,10 +11,13 @@ import javax.inject.Inject
 class MenuItemAdapter @Inject constructor() : ListAdapter<Food, MenuItemViewHolder>(
     MenuItemDiffUtils()
 ) {
+
+    var onCartClick: (Int) -> Unit = {}
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = RvMenuitemCardBinding.inflate(inflater, parent, false)
-        return MenuItemViewHolder(binding)
+        return MenuItemViewHolder(binding, onCartClick)
     }
 
     override fun onBindViewHolder(holder: MenuItemViewHolder, position: Int) {

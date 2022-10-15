@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.birdpizzaapp.baseui.presentation.base.BaseFragment
@@ -14,7 +15,6 @@ import com.example.birdpizzaapp.menu.adapter.menuItem.MenuItemAdapter
 import com.example.birdpizzaapp.menu.databinding.FragmentMenuBinding
 import kotlinx.coroutines.flow.collectLatest
 import javax.inject.Inject
-private const val PIZZA = "pizza"
 
 class MenuFragment : BaseFragment(R.layout.fragment_menu) {
 
@@ -32,7 +32,7 @@ class MenuFragment : BaseFragment(R.layout.fragment_menu) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.initContent(PIZZA)
+        viewModel.initContent()
     }
 
     override fun onCreateView(
@@ -94,16 +94,20 @@ class MenuFragment : BaseFragment(R.layout.fragment_menu) {
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         }
 
-        categoriesAdapter.onClick = { categoryName ->
-            viewModel.initContent(categoryName)
-        }
-
         lifecycleScope.launchWhenStarted {
             viewModel.loadData.collectLatest {
                 menuAdapter.submitList(it.foodList)
                 bannerAdapter.submitList(it.bannerList)
                 categoriesAdapter.submitList(it.categoriesList)
             }
+        }
+
+        categoriesAdapter.onClick = { categoryName ->
+           viewModel.refreshData(categoryName)
+        }
+
+        menuAdapter.onCartClick = {
+            Toast.makeText(context, "Adding to cart", Toast.LENGTH_SHORT).show()
         }
     }
 }

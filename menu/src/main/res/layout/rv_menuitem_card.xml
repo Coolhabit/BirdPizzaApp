@@ -30,8 +30,19 @@
             app:layout_constraintStart_toEndOf="@id/menu_item_image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/menu_item_image"
-            app:layout_constraintBottom_toBottomOf="@id/menu_item_image"
             tools:text="Menu item name"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/add_to_cart"
+            android:backgroundTint="@color/accent_pink"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_12"
+            android:layout_marginEnd="@dimen/spacing_12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="@string/add_to_cart"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -1,5 +1,5 @@
 package com.example.birdpizzaapp.data.utils
 
 object API {
-    const val PRIVATE_KEY = "fb62fb6d6fd449bf8be23692f38c00e4"
+    const val PRIVATE_KEY = "dae805051e384c0596041145715004d7"
 }
