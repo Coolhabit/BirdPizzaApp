@@ -14,8 +14,17 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:menu="@menu/menu_toolbar"
-            app:layout_scrollFlags="scroll"/>
+            app:layout_scrollFlags="scroll"
+            app:menu="@menu/menu_toolbar">
+
+            <com.google.android.material.textview.MaterialTextView
+                style="@style/Black14BoldTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/spacing_5"
+                android:drawableEnd="@drawable/ic_arrow_down"
+                android:text="@string/city_name" />
+        </com.google.android.material.appbar.MaterialToolbar>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvAds"

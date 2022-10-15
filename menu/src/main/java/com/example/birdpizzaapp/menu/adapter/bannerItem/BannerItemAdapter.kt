@@ -14,6 +14,11 @@ class BannerItemAdapter @Inject constructor() : ListAdapter<BannerItem, BannerIt
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BannerItemViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = RvBannerItemBinding.inflate(inflater, parent, false)
+
+        val context = binding.root.context.applicationContext
+        binding.root.layoutParams.width =
+            (context.resources.displayMetrics.widthPixels * 0.85).toInt()
+
         return BannerItemViewHolder(binding)
     }
 

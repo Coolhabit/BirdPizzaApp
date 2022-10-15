@@ -16,12 +16,12 @@ class MockAppBarService : IAppBarService {
 
     override suspend fun loadCategoriesList(): List<CategoryItem> {
         val categoriesList = mutableListOf<CategoryItem>()
-        categoriesList.add(CategoryItem("pizza"))
-        categoriesList.add(CategoryItem("burger"))
-        categoriesList.add(CategoryItem("pasta"))
-        categoriesList.add(CategoryItem("salad"))
-        categoriesList.add(CategoryItem("drink"))
-        categoriesList.add(CategoryItem("dessert"))
+        categoriesList.add(CategoryItem("Pizza"))
+        categoriesList.add(CategoryItem("Burger"))
+        categoriesList.add(CategoryItem("Pasta"))
+        categoriesList.add(CategoryItem("Salad"))
+        categoriesList.add(CategoryItem("Drink"))
+        categoriesList.add(CategoryItem("Dessert"))
 
         return categoriesList
     }

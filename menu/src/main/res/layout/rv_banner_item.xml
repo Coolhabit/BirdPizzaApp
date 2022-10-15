@@ -3,12 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="12dp">
+    app:cardCornerRadius="@dimen/spacing_12">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/banner_image"
         android:layout_width="match_parent"
         android:scaleType="centerCrop"
-        android:layout_height="65dp" />
+        android:layout_height="@dimen/size_65" />
 
 </com.google.android.material.card.MaterialCardView>

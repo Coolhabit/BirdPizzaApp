@@ -4,8 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="1dp">
+    app:cardCornerRadius="@dimen/spacing_12"
+    app:cardElevation="@dimen/spacing_1">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,9 +13,9 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/menu_item_image"
-            android:layout_width="100dp"
-            android:layout_height="0dp"
-            android:layout_margin="15dp"
+            android:layout_width="@dimen/size_100"
+            android:layout_height="@dimen/size_0"
+            android:layout_margin="@dimen/spacing_15"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintStart_toStartOf="parent"
@@ -23,11 +23,14 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/menu_item_title"
-            android:layout_width="wrap_content"
+            style="@style/Black14BoldTextStyle"
+            android:layout_width="@dimen/size_0"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="@dimen/spacing_10"
             app:layout_constraintStart_toEndOf="@id/menu_item_image"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/menu_item_image"
+            app:layout_constraintBottom_toBottomOf="@id/menu_item_image"
             tools:text="Menu item name"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
