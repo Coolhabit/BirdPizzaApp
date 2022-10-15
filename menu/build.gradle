@@ -79,4 +79,5 @@ dependencies {
     implementation kiel
 
     implementation project(":baseUI")
+    implementation project(":domain")
 }

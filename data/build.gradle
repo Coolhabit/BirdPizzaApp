@@ -1,0 +1,95 @@
+plugins {
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'com.android.library'
+    id 'kotlin-parcelize'
+    id 'kotlinx-serialization'
+}
+
+apply from: '../dependencies.gradle'
+
+android {
+    compileSdkVersion compSdkVersion
+
+    defaultConfig {
+        minSdkVersion mSdkVersion
+        targetSdkVersion tarSdkVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    sourceSets {
+        main {
+            java {
+                srcDir "src/main/java"
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        freeCompilerArgs += [
+                "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
+        ]
+    }
+
+    kapt {
+        arguments {
+            arg("dagger.fastInit", "enabled")
+            arg("room.schemaLocation", "$projectDir/schemas".toString())
+            arg("room.incremental", "true")
+        }
+    }
+}
+
+dependencies {
+    testImplementation junit
+    androidTestImplementation android_test
+
+    implementation core_ktx
+
+    // coroutines
+    implementation kotlinx_coroutines_core
+    implementation kotlinx_coroutines_android
+
+    // dagger 2
+    implementation dagger
+    implementation dagger_android
+    implementation dagger_android_support
+    kapt dagger_android_processor
+    kapt dagger_compiler
+
+    //JSON
+    implementation serialization
+
+    //room
+    implementation room_runtime
+    kapt room_kapt
+    implementation room_ktx
+
+    implementation joda_time
+
+    //retrofit
+    implementation retrofit
+    implementation retrofit_gson
+    implementation retrofit_log
+
+    implementation okhttp
+    implementation pagination
+
+    implementation data_store
+    implementation data_store_core
+
+    implementation project(":domain")
+}

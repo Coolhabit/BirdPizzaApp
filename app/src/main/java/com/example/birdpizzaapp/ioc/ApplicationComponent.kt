@@ -1,6 +1,7 @@
 package com.example.birdpizzaapp.ioc
 
 import com.example.birdpizzaapp.BirdPizzaApp
+import com.example.birdpizzaapp.data.ioc.RemoteModule
 import com.example.birdpizzaapp.ioc.modules.*
 import dagger.BindsInstance
 import dagger.Component
@@ -19,7 +20,7 @@ import javax.inject.Singleton
         UseCasesModule::class,
         NavigationRoutersModule::class,
         ApiModule::class,
-//        RemoteModule::class,
+        RemoteModule::class,
         StoragesModule::class,
     ]
 )

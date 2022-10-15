@@ -100,4 +100,6 @@ dependencies {
     implementation project(":profile")
     implementation project(":cart")
     implementation project(":baseUI")
+    implementation project(":data")
+    implementation project(":domain")
 }
