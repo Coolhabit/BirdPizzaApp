@@ -11,6 +11,7 @@
     <dimen name="spacing_12">10dp</dimen>
     <dimen name="spacing_15">15dp</dimen>
     <dimen name="spacing_16">16dp</dimen>
+    <dimen name="spacing_56">56dp</dimen>
 
 
     <dimen name="text_14">14sp</dimen>
